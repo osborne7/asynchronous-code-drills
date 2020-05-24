@@ -29,4 +29,22 @@ let getWords = (word1, word2, word3) => {
 
 getWords('first', 'second', 'third');
 
+
 // callbacks and recursion
+
+let done = () => {
+    console.log(`job's done!`);
+}
+
+let countdown = (num, callback) => {
+    setTimeout(() => {
+        if (num > 0) {
+            console.log(num);
+            countdown(num - 1, callback);
+        } else {
+            done();
+        }
+    }, 1000);
+}
+
+countdown(15, done);
