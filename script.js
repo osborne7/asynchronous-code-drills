@@ -48,3 +48,32 @@ let countdown = (num, callback) => {
 }
 
 countdown(15, done);
+
+
+// promises
+
+let lunchTime = false;
+
+let orderMeSomeFood = () => {
+    return new Promise((resolve, reject) => {
+        if (lunchTime === true) {
+            let myOrder = {
+                lunch: 'smoothie',
+                drink: 'seltzer'
+            }
+                resolve(myOrder);
+        } else {
+           let myError = new Error('no lunch!');
+            reject(myError);
+        }
+    });
+};
+
+orderMeSomeFood().then((value) => {
+    console.log('lunch!!!');
+}
+    
+).catch((error) => {
+    console.log(error);
+
+});
